@@ -28,7 +28,7 @@ class Example(QtGui.QWidget):
                 grid.addWidget(card,x,y,1,2)
             
         self.setLayout(grid)
-        self.setGeometry(30,30,WINDOW_WIDTH,WINDOW_HEIGHT)
+        self.setGeometry(100,100,WINDOW_WIDTH,WINDOW_HEIGHT)
         self.setWindowTitle('Pi Guess  Who')
         self.setWindowIcon(QtGui.QIcon('web.png'))
 
