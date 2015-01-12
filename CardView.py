@@ -18,17 +18,19 @@ class Example(QtGui.QWidget):
         grid = QtGui.QGridLayout()
         grid.setSpacing(SPACING)
         cards = []
-        for x in range(3):
-            for y in range(8):
-                pic = QtGui.QPixmap("pic.jpeg")
-                pic.scaledToWidth(10)
+        picWidth = ((WINDOW_WIDTH-((COLS+1)*SPACING))/COLS)
+        print(WINDOW_WIDTH)
+        print(picWidth)
+        for x in range(1,(2*ROWS),2):
+            for y in range(1,(2*COLS),2):
+                pic = QtGui.QPixmap("IMG_4138.jpg")
                 card = QtGui.QLabel(self)
-                #card.setFrameShape(QtGui.QFrame.StyledPanel)
-                card.setPixmap(pic.scaledToHeight((WINDOW_HEIGHT-((ROWS+1)*SPACING))/ROWS).scaledToWidth((WINDOW_WIDTH-((COLS+1)*SPACING))/COLS))
+                
+                card.setPixmap(pic.scaledToWidth(picWidth))
                 grid.addWidget(card,x,y,1,2)
             
         self.setLayout(grid)
-        self.setGeometry(100,100,WINDOW_WIDTH,WINDOW_HEIGHT)
+        self.setGeometry(30,30,WINDOW_WIDTH,WINDOW_HEIGHT)
         self.setWindowTitle('Pi Guess  Who')
         self.setWindowIcon(QtGui.QIcon('web.png'))
 
@@ -43,14 +45,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-
-##
-##pixmap = QtGui.QPixmap("wires.png")
-##        lbl = QtGui.QLabel(self)
-##        lbl.setPixmap(pixmap)
-##
-##        title = QtGui.QLabel('Title')
-##        grid.addWidget(title,4,3,4,4)
-##        grid.addWidget(lbl,15,15,16,16)
